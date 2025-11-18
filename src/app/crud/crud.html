@@ -1,0 +1,21 @@
+<section>
+  <h2>Create Item</h2>
+  <div>
+    <input type="text" placeholder="Item Name" (blur)="ItemName = $event.target.value" value={{this.value}} />
+    <button (click)="createItem()">Create</button>
+  </div>
+
+  <ul>
+    @if (items.length > 0)
+    {
+      @for (item of items; track item)
+      {
+        <li>
+          {{ item.name }}
+          <button (click)="editItem(item)">Edit</button>
+          <button (click)="deleteItem(item)">Delete</button>
+        </li>
+      }
+    }
+  </ul>
+</section>
